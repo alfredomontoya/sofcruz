@@ -1,0 +1,212 @@
+no
+https://github.com/cloudinary-labs/cloudinary-laravel
+
+=====================================================================
+JQUERY
+=====================================================================
+https://www.npmjs.com/package/jquery
+npm i jquery
+
+app.js
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
+=====================================================================
+
+
+=====================================================================
+JQUERY DATATABLE
+=====================================================================
+https://dev.to/dendihandian/adding-datatable-to-laravel-the-laravel-mix-way-2fhi
+https://datatables.net/examples/styling/bootstrap5.html
+npm i datatables
+npm i datatables.net-bs5
+npm i jquery-ui
+npm i jquery-ui-themes
+app.scss
+@import "~datatables.net-bs5/css/dataTables.bootstrap5.css";
+
+@import '~jquery-ui/themes/base/all.css';
+
+.js
+$('.datatable-index').DataTable( {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+
+            // Total over all pages
+            total = api
+                .column(3)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+
+            // Total over this page
+            pageTotal = api
+                .column(3, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+
+            // Update footer
+            $(api.column(3).footer()).html('$' + pageTotal + ' ( $' + total + ' total)');
+        },
+        "language": {
+            "search": "Buscar",
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "info": "Mostrando página _PAGE_ de _PAGES_",
+            "paginate" : {
+                "previous" : "Anterior",
+                "next": "Siguiente",
+                "first": "Primero",
+                "last" : "Ültimo"
+            },
+            select: true
+        }
+    });
+=====================================================================
+
+=====================================================================
+JQUERY AUTOCOMPLETE
+=====================================================================
+https://www.npmjs.com/package/jquery-autocomplete
+
+npm i jquery-autocomplete
+
+app.js
+import 'jquery-ui/ui/widgets/autocomplete.js';
+
+myscript.js
+$(".buscar").keydown(function(){
+        const elemento = $(this);
+        const elemento_id = elemento.next().next();
+        const url = elemento.prev().attr('href');
+
+        elemento.autocomplete({
+            source: function( request, response ) {
+                // Fetch data
+                $.ajax({
+                    url: url,
+                    type: 'get',
+                    dataType: "json",
+                    data: {
+                        search: request.term
+                    },
+                    success: function( data ) {
+                        response(data);
+                    }
+                });
+            },
+            focus: function( event, ui ) {
+                console.log('autocomplete.focus');
+                console.log(ui);
+                elemento.val( ui.item.label2 );
+                elemento_id.val( ui.item.id );
+                return false;
+            },
+            select: function (event, ui) {
+                console.log('autocomplete.select');
+                console.log(ui);
+                elemento.val(ui.item.label2);
+                elemento_id.val(ui.item.value);
+                return false;
+            }
+        });
+    });
+=====================================================================
+
+
+=====================================================================
+VALIDACIONES
+=====================================================================
+https://github.com/Laraveles/spanish
+
+validacion bootstrap
+
+$(document).ready(function(){
+    // Ejemplo de JavaScript inicial para deshabilitar el envío de formularios si hay campos no válidos
+    (function () {
+        'use strict'
+
+        // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Bucle sobre ellos y evitar el envío
+        Array.prototype.slice.call(forms)
+          .forEach(function (form) {
+
+            console.log(form);
+
+            form.addEventListener('submit', function (event) {
+
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+
+              form.classList.add('was-validated')
+            }, false)
+          })
+      })();
+});
+
+
+=====================================================================
+
+
+
+https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Installation
+
+
+https://codeanddeploy.com/blog/laravel/laravel-8-user-roles-and-permissions-step-by-step-tutorial
+
+
+=====================================================================
+FONT AWESOME
+=====================================================================
+https://peaku.co/es/preguntas/44274-como-instalar-font-awesome-en-laravel-mix
+
+npm install font-awesome --save
+npm i --save @fortawesome/fontawesome-free
+
+ @import '~@fortawesome/fontawesome-free/scss/brands';
+ @import '~@fortawesome/fontawesome-free/scss/regular';
+ @import '~@fortawesome/fontawesome-free/scss/solid';
+ @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+=====================================================================
+
+
+
+
+
+ejecutar composer require laravel/ui
+ejecutar php artisan ui vue para solo instalar VUE.
+Ejecutar php artisan ui vue --auth Para andamios de las vistas de la autenticación.
+ejecutar npm install && npm run dev
+
+php artisan storage:link
+
+
+
+
+=====================================================================
+OBSERVER
+=====================================================================
+EventServiceProvider.php
+
+public function boot()
+{
+    //
+    Historiamantenimiento::observe(HistoriamantenimientoObserver::class);
+    Alquiler::observe(AlquilerObserver::class);
+    Finalquiler::observe(FinalquilerObserver::class);
+    Pago::observe(PagoObserver::class);
+}
+=====================================================================

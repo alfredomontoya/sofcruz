@@ -1,0 +1,31 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+.card-header, .btn-danger {
+    background-image: linear-gradient(to right,#1C0101, #A40000);
+}
+
+.page-link {
+    background-image: linear-gradient(to right,#1C0101, #A40000, #1C0101);
+    font-weight: bold;
+    color: white;
+}
+
+.page-link:hover {
+    // background-image: linear-gradient(to right,#1C0101, #A40000, #1C0101);
+    font-weight: bold;
+    color: #fc8080;
+}
+
+.page-link.active, .active > .page-link {
+    z-index: 3;
+    color: white;
+    background-image: linear-gradient(to right,#e20d0d, #e20d0d);
+    border-color: red;
+}
