@@ -1483,6 +1483,12 @@ h6 {
 	flex-direction: row; 
 }
 
+.header-servicios div img{
+	height: 50px !important;
+	width: 50px !important;
+}
+
+
 @media (min-width: 625px) {
 
 	html,
@@ -1577,6 +1583,7 @@ h6 {
 		width: 100%;
 	}
 
+	
 	.header-servicios p{
 		width: 100%;
 		text-align: center;
@@ -1698,6 +1705,8 @@ h6 {
 		text-align: center;
 		width: 100%;
 	}
+
+	
 
 	.header-servicios p{
 		width: 100%;
