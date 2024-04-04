@@ -11,6 +11,10 @@ header,
 	font-family: 'Roboto', sans-serif;
 }
 
+.principal h1 {
+	font-size: 42px;
+}
+
 
 /* Required for full background image */
 
