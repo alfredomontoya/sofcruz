@@ -106,16 +106,15 @@ h6 {
 	box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)!important; 
 }
 
-.img-fluid{
-	margin-bottom: 50px;
+/* .img-fluid{
 	width: 700px;
-}
+} */
 
 .desaparece{
 	display: inline;
 }
 
-.card {
+/* .card {
 	position: relative;
 	display: -ms-flexbox;
 	display: flex;
@@ -127,7 +126,49 @@ h6 {
 	background-clip: border-box;
 	border: 1px solid rgba(0,0,0,.125);
 	border-radius: .25rem;
+} */
+
+.card.servicios {
+	border-radius: 25px;
+	height: 500px;
 }
+
+.card.servicios.sistemas {
+	background: #ED7520;
+}
+
+.card.servicios.pagina-web {
+	background: #388E3C;
+}
+
+.card.servicios.app-movil {
+	background: #2074A9;
+}
+
+.card.servicios .card-body{
+	border-radius: 25px;
+	height: 500px;
+}
+
+.card .card-body .title{
+	color: white;
+	margin-bottom: 10px;
+}
+
+.card .card-body .description{
+	color: white;
+	margin-bottom: 10px;
+}
+
+.card .card-body .image{
+	text-align: center;
+	
+}
+
+.card .card-body .image img{
+	overflow: hidden;
+}
+
 
 .pricing-card {
 	text-align: center;
@@ -1454,17 +1495,13 @@ h6 {
 
 
 .fadeIn-bottom{
-
-  top: 80%;
-
+  	top: 80%;
 }
+
 .promo{
-	
 	height: 37%;
-	
-	
+	display: none;
 }
-
 
 .card .card-header h5 {
 	text-align: center;
@@ -1490,37 +1527,19 @@ h6 {
 
 
 @media (min-width: 625px) {
-
 	html,
-
 	body,
-
 	header,
-
 	.view {
-
-	height: 100%;
-
+		height: 100%;
 	}
-	.promo{
-
-	margin-left: 30%;
-	height: 280px;}
 
 	.oculta {
-
-		display: inline;
+		/* display: inline; */
+		display: none;
 	}
-	
 	.desaparece {
-
 		display: inline;
-		
-	}
-
-	.imagen_oculta{
-
-		display:none;
 	}
 
 }
@@ -1541,23 +1560,12 @@ h6 {
 }
 
 @media (min-width: 768px) {
-
-  html,
-
-  body,
-
-  header
-
-  .view {
-
-    height: 100%;
-
-  }
-
- 
-
-
-
+	html,
+	body,
+	header
+	.view {
+		height: 100%;
+	}
 }
 
 @media (min-width: 1024px) {
