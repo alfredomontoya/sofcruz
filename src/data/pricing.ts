@@ -1,0 +1,55 @@
+import type { PricingPlan } from '../types/pricing'
+
+export const planes: PricingPlan[] = [
+  {
+    id: 'ecommerce',
+    nombre: 'E-commerce',
+    precio: '70/mes',
+    color: 'bg-[#ED7520]',
+    btnColor: 'bg-[#ED7520] text-white',
+    caracteristicas: [
+      'Hosting',
+      'Dominio',
+      'SSL',
+      'Correo',
+      '500 MB disco SSD',
+      'Autoadministrable',
+      'Comercio Electronico',
+      'Soporte Tecnico un año',
+    ],
+  },
+  {
+    id: 'redes-sociales',
+    nombre: 'Redes Sociales',
+    precio: '200/mes',
+    color: 'bg-indigo-600',
+    btnColor: 'bg-indigo-500 text-white',
+    caracteristicas: [
+      'Facebook',
+      'Instagram',
+      'TickTock',
+      'Interacción con Usuarios',
+      'Creacion de Artes',
+      '1 Post semanal',
+      'Marketing Digital',
+      'Diseño Grafico',
+    ],
+  },
+  {
+    id: 'diseno-grafico',
+    nombre: 'Diseño gráfico',
+    precio: '50 Arte',
+    color: 'bg-green-600',
+    btnColor: 'bg-green-600 text-white',
+    caracteristicas: [
+      'Diseño de logo',
+      'Linea Grafica',
+      'Rediseño de Marca',
+      'Elaboracion de flayer',
+      'Diseño para POST de RRSS',
+      'Diseño de imagenes principales en RSS',
+      'Retoque de Fotos',
+      'Vectorizado de Imagenes',
+    ],
+  },
+]

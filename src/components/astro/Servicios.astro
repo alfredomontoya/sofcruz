@@ -1,0 +1,46 @@
+---
+import ServiciosGrid from './ServiciosGrid.astro'
+import ServiciosDetalle from './ServiciosDetalle.astro'
+---
+
+<section class="w-full py-5 scroll-mt-16" id="servicios">
+  <div class="my-1 max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mt-5">Soluciones Empresariales en En sistemas y Redes</h2>
+    <p class="text-gray-500 text-center max-w-2xl mx-auto text-lg font-normal">
+      SofCruz ofrece diferentes servicios, para que las empresas mejoren en su procesamiento de datos.
+    </p>
+  </div>
+
+  <div id="servicios-pills" class="flex flex-wrap justify-center gap-2 mb-8 px-4 max-w-7xl mx-auto">
+    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">✅ Redes empresariales y Wi-Fi corporativo</span>
+    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">✅ Cableado estructurado</span>
+    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">✅ Servidores Windows y Linux</span>
+    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">✅ Seguridad informática y firewalls</span>
+    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">✅ Respaldo y recuperación de datos</span>
+    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">✅ Telefonía IP y telecomunicaciones</span>
+    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">✅ Desarrollo de sistemas empresariales</span>
+    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">✅ Soporte técnico especializado</span>
+    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">✅ Soluciones en la nube</span>
+    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium">✅ Monitoreo y administración TI</span>
+  </div>
+
+  <ServiciosGrid />
+  <ServiciosDetalle />
+</section>
+
+<script>
+  const cards = document.querySelectorAll<HTMLElement>('[data-search-target]')
+  const pills = document.querySelectorAll<HTMLElement>('#servicios-pills span')
+
+  globalThis.addEventListener('sofcruz:search', ((e: CustomEvent<{ query: string }>) => {
+    const q = e.detail.query
+
+    cards.forEach((card) => {
+      card.classList.toggle('hidden', q.length > 0 && !card.textContent.toLowerCase().includes(q))
+    })
+
+    pills.forEach((pill) => {
+      pill.classList.toggle('hidden', q.length > 0 && !pill.textContent.toLowerCase().includes(q))
+    })
+  }) as EventListener)
+</script>

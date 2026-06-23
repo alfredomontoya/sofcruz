@@ -1,0 +1,17 @@
+---
+import { serviciosPrincipales } from '../../data/servicios'
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 max-w-7xl mx-auto">
+  {serviciosPrincipales.map((servicio) => (
+    <div data-search-target class="rounded-2xl overflow-hidden shadow-md bg-white">
+      <div class={`bg-gradient-to-br ${servicio.color} p-5 text-white`}>
+        <div class="text-lg font-semibold mb-2">{servicio.titulo}</div>
+        <p class="text-sm text-white/80">{servicio.descripcion}</p>
+      </div>
+      <div class="text-center p-3 bg-white">
+        <img src={`/${servicio.imagen}`} class="max-w-full h-32 object-contain mx-auto" alt={servicio.titulo} />
+      </div>
+    </div>
+  ))}
+</div>

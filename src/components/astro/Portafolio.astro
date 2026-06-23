@@ -1,0 +1,24 @@
+---
+import { proyectos } from '../../data/portafolio'
+---
+
+<section class="w-full mt-2 my-5 scroll-mt-16" id="portafolio">
+  <h2 class="text-3xl md:text-4xl font-bold text-center">Portafolio - SofCruz</h2>
+  <p class="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-5">
+    Sistemas los cuales estan diseñados para satisfacer las necesidad de las empresas en el procesamiento de los datos.
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 max-w-7xl mx-auto justify-items-center">
+    {proyectos.map((proyecto) => (
+      <figure class="mb-4">
+        {proyecto.url ? (
+          <a href={proyecto.url} target="_blank" rel="noopener noreferrer">
+            <img src={`/${proyecto.imagen}`} class="w-full shadow-md rounded" alt={proyecto.alt} />
+          </a>
+        ) : (
+          <img src={`/${proyecto.imagen}`} class="w-full shadow-md rounded" alt={proyecto.alt} />
+        )}
+      </figure>
+    ))}
+  </div>
+</section>

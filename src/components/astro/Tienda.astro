@@ -1,0 +1,63 @@
+---
+const productos = [
+  {
+    id: 'audifonos',
+    titulo: 'Audifono Inalambrico',
+    categoria: 'Audifonos',
+    descripcion: 'Dispositivo Audifonos bluetooth TOMATE, funcion power bank',
+    precio: '160 Bs',
+    imagen: 'img/productos/audifono.jpg',
+  },
+  {
+    id: 'reloj',
+    titulo: 'Reloj Inteligente',
+    categoria: 'Reloj',
+    descripcion: 'Reloj (chip y memoria), recibe llamadas enlace con celular para redes sociales',
+    precio: '100 Bs',
+    imagen: 'img/productos/reloj.jpg',
+  },
+  {
+    id: 'inflador',
+    titulo: 'Inflador de Ruedas',
+    categoria: 'Inflador',
+    descripcion: 'conexión para auto ideal para viajes, tiene medidor de presión',
+    precio: '150 Bs',
+    imagen: 'img/productos/inflador.jpg',
+  },
+]
+---
+
+<section class="w-full text-center my-5 scroll-mt-16" id="tienda" hidden>
+  <h2 class="text-3xl md:text-4xl font-bold text-center">TIENDA</h2>
+  <p class="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-5">
+    SofCruz te ofrecemos productos con calidad precio (envio gratis y credito)
+  </p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 px-4 max-w-7xl mx-auto">
+    {productos.map((producto) => (
+      <div class="rounded-lg overflow-hidden shadow-lg bg-white h-[400px] flex flex-col">
+        <div class="relative overflow-hidden">
+          <img src={producto.imagen} class="w-full h-48 object-cover" alt={producto.titulo} />
+        </div>
+        <div class="p-4 flex flex-col flex-1 text-center">
+          <a href="" class="text-gray-500 no-underline text-sm"><h5>{producto.categoria}</h5></a>
+          <h4 class="font-bold">
+            <strong><a href="" class="no-underline text-inherit">{producto.titulo}</a></strong>
+          </h4>
+          <p class="text-sm text-gray-600 flex-1">{producto.descripcion}</p>
+          <div class="flex justify-between items-center px-1 pt-2 border-t border-gray-200">
+            <span class="font-bold">{producto.precio}</span>
+            <span>
+              <a class="text-gray-400 ml-3 no-underline"><i class="fa fa-eye"></i></a>
+              <a class="text-gray-400 ml-3 no-underline"><i class="fa fa-heart"></i></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=www.sofcruz.com" class="inline-block mt-4 px-4 py-2 bg-blue-500 text-white rounded no-underline">
+    Ayudanos a compartir en Facebook
+  </a>
+</section>

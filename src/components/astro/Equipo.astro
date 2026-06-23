@@ -1,0 +1,43 @@
+---
+import { gruposEquipo } from '../../data/equipo'
+---
+
+<section class="py-5 scroll-mt-16" id="equipo">
+  <h2 class="text-3xl md:text-4xl font-bold text-center" hidden>EQUIPO</h2>
+  <p class="text-lg text-gray-500 text-center max-w-2xl mx-auto mb-5" hidden>
+    Contamos con Recurso Humano Profesional con mas de 15 años de experiencia en el mundo del desarrollo.
+  </p>
+
+  <div class="max-w-7xl mx-auto text-center px-4">
+    {gruposEquipo.map((grupo) => (
+      <div class="mb-5">
+        <div class="text-2xl font-bold text-white bg-green-700 py-3 mb-4">
+          {grupo.titulo}
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {grupo.miembros.map((miembro) => (
+            <div class="mb-5">
+              <div class="mx-auto">
+                <div class="hover15 column">
+                  <figure>
+                    <img
+                      src={`/${miembro.foto}`}
+                      class="rounded-full w-32 h-32 object-cover shadow-md mx-auto"
+                      alt={miembro.nombre}
+                    />
+                  </figure>
+                </div>
+              </div>
+              <h5 class="font-bold mt-4 mb-3">{miembro.nombre}</h5>
+              <p class="uppercase text-blue-600 font-bold text-sm">{miembro.rol}</p>
+              {miembro.descripcion && (
+                <p class="text-gray-500">{miembro.descripcion}</p>
+              )}
+
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

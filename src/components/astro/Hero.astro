@@ -1,0 +1,14 @@
+---
+import Navbar from '../react/Navbar.tsx'
+import HeroContent from './HeroContent.astro'
+---
+
+<header class="relative min-h-screen bg-cover bg-center bg-[url('/css/img/banner.jpg')]">
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <Navbar client:load />
+
+  <div class="relative z-10 flex items-center justify-center min-h-screen px-4">
+    <HeroContent />
+  </div>
+</header>
